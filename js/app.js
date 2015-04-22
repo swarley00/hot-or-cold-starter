@@ -15,7 +15,7 @@ $(document).ready(function(){
   	});
 
   	newGame();
-  	
+
 	newBtn.click(function () {
 		newGame();
 	}); 
@@ -24,30 +24,29 @@ $(document).ready(function(){
 
 function newGame () {
 	generateNumber();
-	feedback();
 }
 
 function generateNumber () {
 	var randomNumber = Math.round((Math.random()*100));
 	console.log(randomNumber);
-	return randomNumber;
+	feedback(randomNumber);
 }
 
-function feedback () {
+function feedback (r) {
 	var userGuess = $("#userGuess").val();
-	if (userGuess <= randomNumber - 50) {
+	if (userGuess <= r - 50) {
 		console.log("Ice Cold");
 	}
-	else if (userGuess > randomNumber - 30 && userGuess < randomNumber - 50) {
+	else if (userGuess > r - 30 && userGuess < r - 50) {
 		console.log("Cold");
 	}
-	else if (userGuess > randomNumber - 20 && userGuess < randomNumber - 30) {
+	else if (userGuess > r - 20 && userGuess < r - 30) {
 		console.log("Warm");
 	}
-	else if (userGuess > randomNumber - 10 && userGuess < randomNumber - 20) {
+	else if (userGuess > r - 10 && userGuess < r - 20) {
 		console.log("Hot");
 	}
-	else if (userGuess > randomNumber - 1 && userGuess < randomNumber - 10) {
+	else if (userGuess > r - 1 && userGuess < r - 10) {
 		console.log("Very Hot");
 	}
 }

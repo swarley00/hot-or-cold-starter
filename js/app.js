@@ -3,7 +3,7 @@ $(document).ready(function(){
 	
 	var newBtn = $(".new");
 	var guessBtn = $("#guessButton");
-	var randomNumber = Math.round((Math.random()*100));
+	var randomNumber = generateNumber();
 
 	/*--- Display information modal box ---*/
   	$(".what").click(function(){
@@ -34,25 +34,25 @@ function newGame () {
 }
 
 function generateNumber () {
-	return randomNumber;
+	return Math.round((Math.random()*100));
 	console.log(randomNumber);
 }
 
 function feedback () {
 	var userGuess = $("#userGuess").val();
-	if (userGuess <= randomNumber - 50) {
-		console.log("Ice Cold");
-	}
-	else if (userGuess > randomNumber - 30 && userGuess < randomNumber - 50) {
-		console.log("Cold");
-	}
-	else if (userGuess > randomNumber - 20 && userGuess < randomNumber - 30) {
-		console.log("Warm");
-	}
-	else if (userGuess > randomNumber - 10 && userGuess < randomNumber - 20) {
-		console.log("Hot");
-	}
-	else if (userGuess > randomNumber - 1 && userGuess < randomNumber - 10) {
-		console.log("Very Hot");
-	}
+	// if (userGuess <= randomNumber - 50) {
+	// 	console.log("Ice Cold");
+	// }
+	// else if (userGuess > randomNumber - 30 && userGuess < randomNumber - 50) {
+	// 	console.log("Cold");
+	// }
+	// else if (userGuess > randomNumber - 20 && userGuess < randomNumber - 30) {
+	// 	console.log("Warm");
+	// }
+	// else if (userGuess > randomNumber - 10 && userGuess < randomNumber - 20) {
+	// 	console.log("Hot");
+	// }
+	// else if (userGuess > randomNumber - 1 && userGuess < randomNumber - 10) {
+	// 	console.log("Very Hot");
+	// }
 }

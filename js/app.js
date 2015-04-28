@@ -2,6 +2,8 @@
 $(document).ready(function(){
 	
 	var newBtn = $(".new");
+	var guessBtn = $("#guessButton");
+	var randomNumber = Math.round((Math.random()*100));
 
 	/*--- Display information modal box ---*/
   	$(".what").click(function(){
@@ -20,6 +22,11 @@ $(document).ready(function(){
 		newGame();
 	}); 
 
+	guessBtn.click(function () {
+		event.preventDefault();
+		feedback();
+	});
+
 });
 
 function newGame () {
@@ -27,26 +34,25 @@ function newGame () {
 }
 
 function generateNumber () {
-	var randomNumber = Math.round((Math.random()*100));
+	return randomNumber;
 	console.log(randomNumber);
-	feedback(randomNumber);
 }
 
-function feedback (r) {
+function feedback () {
 	var userGuess = $("#userGuess").val();
-	if (userGuess <= r - 50) {
+	if (userGuess <= randomNumber - 50) {
 		console.log("Ice Cold");
 	}
-	else if (userGuess > r - 30 && userGuess < r - 50) {
+	else if (userGuess > randomNumber - 30 && userGuess < randomNumber - 50) {
 		console.log("Cold");
 	}
-	else if (userGuess > r - 20 && userGuess < r - 30) {
+	else if (userGuess > randomNumber - 20 && userGuess < randomNumber - 30) {
 		console.log("Warm");
 	}
-	else if (userGuess > r - 10 && userGuess < r - 20) {
+	else if (userGuess > randomNumber - 10 && userGuess < randomNumber - 20) {
 		console.log("Hot");
 	}
-	else if (userGuess > r - 1 && userGuess < r - 10) {
+	else if (userGuess > randomNumber - 1 && userGuess < randomNumber - 10) {
 		console.log("Very Hot");
 	}
 }

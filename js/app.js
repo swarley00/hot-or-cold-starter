@@ -25,6 +25,7 @@ $(document).ready(function(){
 	guessBtn.click(function () {
 		event.preventDefault();
 		feedback();
+		console.log(randomNumber);
 	});
 
 });
@@ -35,11 +36,15 @@ function newGame () {
 
 function generateNumber () {
 	return Math.round((Math.random()*100));
-	console.log(randomNumber);
 }
 
 function feedback () {
 	var userGuess = $("#userGuess").val();
+	var difference = Math.abs(userGuess - randomNumber);
+
+	if (difference > 50) {
+		console.log("Ice Cold");
+	}
 	// if (userGuess <= randomNumber - 50) {
 	// 	console.log("Ice Cold");
 	// }

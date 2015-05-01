@@ -42,11 +42,14 @@ $(document).ready(function(){
 		var userGuess = $("#userGuess").val();
 		var difference = Math.abs(userGuess - randomNumber);
 		var feedBack = $("#feedback");
+		var guessList = $("#guessList");
 		var iceCold = "<h2 id='feedback'>Ice Cold</h2>";
 		var cold = "<h2 id='feedback'>Cold</h2>";
 		var warm = "<h2 id='feedback'>Warm</h2>";
 		var hot = "<h2 id='feedback'>Hot</h2>";
 		var veryHot = "<h2 id='feedback'>Very Hot</h2>";
+
+		guessList.prepend("<li>" + userGuess + "</li>");
 
 		if (difference >= 50) {
 			feedBack.replaceWith(iceCold);
@@ -72,12 +75,4 @@ $(document).ready(function(){
 			console.log(difference);
 		}
 	}
-
-// Increment guessCount by 1 every time the user hits enter. #count.replaceWith(incremented variable);
-	// function guesses () {
-	// 	var guessCount = 0;
-	// 	var count = $("#count");
-	// 	guessCount++;
-	// 	count.replaceWith(guessCount);
-	// }
 });

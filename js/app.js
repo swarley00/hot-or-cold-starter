@@ -3,6 +3,7 @@ $(document).ready(function(){
 	var newBtn = $(".new");
 	var guessBtn = $("#guessButton");
 	var randomNumber = generateNumber();
+	var guessCount = 0;
 
 	/*--- Display information modal box ---*/
   	$(".what").click(function(){
@@ -21,13 +22,11 @@ $(document).ready(function(){
 	}); 
 
 	guessBtn.click(function () {
-		var count = $("#count");
-		var guessCount = 0;
-		var newGuess = "<p>Guess #<span id='count'>guessCount</span>!</p>";
 		event.preventDefault();
 		feedback();
 		guessCount++;
-		count.replaceWith(newGuess);
+		$("#count").replaceWith("<span id='count'>" + guessCount + "</span>");
+		console.log("this is guess #" + guessCount);
 		console.log(randomNumber);
 	});
 

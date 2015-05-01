@@ -15,8 +15,6 @@ $(document).ready(function(){
   		$(".overlay").fadeOut(1000);
   	});
 
-  	newGame();
-
 	newBtn.click(function () {
 		newGame();
 	}); 
@@ -50,6 +48,10 @@ $(document).ready(function(){
 		var veryHot = "<h2 id='feedback'>Very Hot</h2>";
 
 		guessList.prepend("<li>" + userGuess + "</li>");
+
+		if (isNaN(userGuess)) {
+			alert("Please use a number!");
+		}
 
 		if (difference >= 50) {
 			feedBack.replaceWith(iceCold);

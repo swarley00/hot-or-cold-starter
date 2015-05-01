@@ -21,8 +21,13 @@ $(document).ready(function(){
 	}); 
 
 	guessBtn.click(function () {
+		var count = $("#count");
+		var guessCount = 0;
+		var newGuess = "<p>Guess #<span id='count'>guessCount</span>!</p>";
 		event.preventDefault();
 		feedback();
+		guessCount++;
+		count.replaceWith(newGuess);
 		console.log(randomNumber);
 	});
 
@@ -65,8 +70,15 @@ $(document).ready(function(){
 			console.log("Very Hot");
 		}
 		else {
-			feedback;
 			console.log(difference);
 		}
 	}
+
+// Increment guessCount by 1 every time the user hits enter. #count.replaceWith(incremented variable);
+	// function guesses () {
+	// 	var guessCount = 0;
+	// 	var count = $("#count");
+	// 	guessCount++;
+	// 	count.replaceWith(guessCount);
+	// }
 });

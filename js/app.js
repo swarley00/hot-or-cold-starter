@@ -3,7 +3,6 @@ $(document).ready(function(){
 	var newBtn = $(".new");
 	var guessBtn = $("#guessButton");
 	var randomNumber = generateNumber();
-	var feedBack = $("#feedback");
 
 	/*--- Display information modal box ---*/
   	$(".what").click(function(){
@@ -38,6 +37,7 @@ $(document).ready(function(){
 	function feedback () {
 		var userGuess = $("#userGuess").val();
 		var difference = Math.abs(userGuess - randomNumber);
+		var feedBack = $("#feedback");
 		var iceCold = "<h2 id='feedback'>Ice Cold</h2>";
 		var cold = "<h2 id='feedback'>Cold</h2>";
 		var warm = "<h2 id='feedback'>Warm</h2>";
@@ -65,6 +65,7 @@ $(document).ready(function(){
 			console.log("Very Hot");
 		}
 		else {
+			feedback;
 			console.log(difference);
 		}
 	}

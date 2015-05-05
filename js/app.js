@@ -30,6 +30,10 @@ $(document).ready(function(){
 
 	function newGame () {
 		generateNumber();
+		$("#count").replaceWith("<span id='count'>" + 0 + "</span>");
+		$("#feedback").replaceWith("<h2 id='feedback'>Make your Guess!</h2>");
+		$("#guessList").empty();
+		$("#userGuess").val('');
 	}
 
 	function generateNumber () {
@@ -37,6 +41,7 @@ $(document).ready(function(){
 	}
 
 	function feedback () {
+
 		var userGuess = $("#userGuess").val();
 		var difference = Math.abs(userGuess - randomNumber);
 		var feedBack = $("#feedback");

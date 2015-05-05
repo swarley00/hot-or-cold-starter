@@ -22,16 +22,16 @@ $(document).ready(function(){
 	guessBtn.click(function () {
 		event.preventDefault();
 		feedback();
-		guessCount++;
 		$("#count").replaceWith("<span id='count'>" + guessCount + "</span>");
 		console.log("this is guess #" + guessCount);
-		console.log(randomNumber);
+		console.log("this is the random number" + randomNumber);
 	});
 
 	function newGame () {
-		generateNumber();
+		randomNumber = generateNumber();
 		$("#count").replaceWith("<span id='count'>" + 0 + "</span>");
 		$("#feedback").replaceWith("<h2 id='feedback'>Make your Guess!</h2>");
+		guessCount = 0;
 		$("#guessList").empty();
 		$("#userGuess").val('');
 	}
@@ -52,34 +52,42 @@ $(document).ready(function(){
 		var hot = "<h2 id='feedback'>Hot</h2>";
 		var veryHot = "<h2 id='feedback'>Very Hot</h2>";
 
-		guessList.prepend("<li>" + userGuess + "</li>");
-
 		if (isNaN(userGuess)) {
+			$("#userGuess").val('');
 			alert("Please use a number!");
 		}
-
-		if (difference >= 50) {
-			feedBack.replaceWith(iceCold);
-			console.log("Ice Cold");
-		}
-		else if (difference >= 30 && difference <= 50) {
-			feedBack.replaceWith(cold);
-			console.log("Cold");
-		}
-		else if (difference >= 20 && difference <= 30) {
-			feedBack.replaceWith(warm);
-			console.log("Warm");
-		}
-		else if (difference >= 10 && difference <= 20) {
-			feedBack.replaceWith(hot);
-			console.log("Hot");
-		}
-		else if (difference >= 1 && difference <= 10) {
-			feedBack.replaceWith(veryHot);
-			console.log("Very Hot");
-		}
 		else {
-			console.log(difference);
+			guessCount++;
+
+			guessList.prepend("<li>" + userGuess + "</li>");
+		
+			if (difference >= 50) {
+				feedBack.replaceWith(iceCold);
+				console.log("Ice Cold");
+			}
+			else if (difference >= 30 && difference <= 50) {
+				feedBack.replaceWith(cold);
+				console.log("Cold");
+			}
+			else if (difference >= 20 && difference <= 30) {
+				feedBack.replaceWith(warm);
+				console.log("Warm");
+			}
+			else if (difference >= 10 && difference <= 20) {
+				feedBack.replaceWith(hot);
+				console.log("Hot");
+			}
+			else if (difference >= 1 && difference <= 10) {
+				feedBack.replaceWith(veryHot);
+				console.log("Very Hot");
+			}
+			else if (difference === 0) {
+				feedBack.text("You Win!");
+				console.log(difference);
+				if (window.confirm("You win! Do you want to start a new game?")) { 
+  					newGame();
+				}
+			}
 		}
 	}
 });
